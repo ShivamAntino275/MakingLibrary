@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Decor Plus</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="_new">New</string>
+    <string name="screenType">ScreenType</string>
+    <string name="Contest">Contest</string>
+    <string name="Refer">Refer</string>
+    <string name="refer_amp_earn_points"><![CDATA[Refer & Earn Points]]></string>
+    <string name="your_points_status">Your Points Status</string>
+    <string name="current_financial_year">Current FY:</string>
+    <string name="current_month">Current Month:</string>
+    <string name="note_value">Note: 1 Point = 1 Indian Rupee</string>
+    <string name="your_schemes">Your Schemes</string>
+    <string name="premium_xt">Premium XT</string>
+    <string name="sep_dec_2023">Sep - Dec 2023</string>
+    <string name="target">Target Volume</string>
+    <string name="bonus_pts">: Bonus Pts</string>
+    <string name="topPrize">TOP PRIZES</string>
+    <string name="top_prizes">TOP PRIZES</string>
+    <string name="_1_hero_honda">1. Hero Honda</string>
+    <string name="_2_10g_gold_coin">2. 10g Gold Coin</string>
+    <string name="error_message">"Something went Wrong"</string>
+    <string name="greeting">Happy Dipawali. <i>100 points gifted </i> by Indigo Paints.
+Click here to claim your points</string>
+
+    <string name="contact_name">Contact Name*</string>
+    <string name="current_top_10_scheme_leaders">Current Top 10 Scheme Leaders:</string>
+    <string name="playAndWin"><![CDATA[Play & win Selfie Contest]]></string>
+    <string name="collectReward">Collect Reward\n<font color='#b7017e'>₹0</font></string>
+    <string name="awardBadges">Award Badges\n<font color='#b7017e'>1/12</font></string>
+    <string name="enter_data_here">Enter Data Here</string>
+
+</resources>

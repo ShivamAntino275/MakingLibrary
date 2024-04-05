@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.indigo.custom.models.ContestResponseModel.Data.ContestData.ContestDetails.ContestSlabDetail" />
+
+        <import type="android.view.View"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clSchemeDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTargetTextPremium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:text="@{String.valueOf(model.adapterPosition+1)+`. `+String.valueOf(model.targetValue!=null ? model.targetValue :`-`)+ ( model.targetType.equalsIgnoreCase(`liter`)?` L`:model.targetType.equalsIgnoreCase(`points`)?` Pts.`:model.targetType),default=`1.200 L`}"
+            android:textColor="@color/headerColor"
+            android:textSize="@dimen/_13sp"
+            android:visibility="@{model.isDynamic?View.GONE:View.VISIBLE}"
+            setFontFamily="@{model.isAchieved}"
+            setFont="@{model.isCurrent}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="3dp"
+            android:id="@+id/view"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            android:visibility="@{model.isDynamic?View.GONE:View.VISIBLE}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvTargetTextPremium"
+            app:layout_constraintEnd_toStartOf="@+id/tvPointsTextPremium"
+            android:background="@drawable/dotted_line"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvPointsTextPremium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{String.valueOf(model.bonusValue!=null ? model.bonusValue :`-`)+ (model.bonusType.equalsIgnoreCase(`percentage`)?` %`:``),default=`20`}"
+            android:textColor="@color/headerColor"
+            android:textSize="@dimen/_13sp"
+            android:visibility="@{model.isDynamic?View.GONE:View.VISIBLE}"
+            setFontFamily="@{model.isAchieved}"
+            setFont="@{model.isCurrent}"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- last item -->
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAdditional"
+            android:lineSpacingExtra="5dp"
+            android:layout_marginStart="10dp"
+            android:visibility="@{model.isDynamic?View.VISIBLE:View.GONE}"
+            android:text="@{model.isDynamic?String.valueOf(model.adapterPosition+1)+`. ` + `Every Additional `+ model.targetValue+ (model.targetType.equalsIgnoreCase(`liter`)?` L`:` Pts`) +` Wins `+ model.bonusValue + (model.bonusType.equalsIgnoreCase(`percentage`)?` %`:` Bonus Pts`):``}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/_13sp"
+            android:textColor="@color/headerColor"
+            android:fontFamily="@font/helveticaneuelightitalic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+<!--        <com.google.android.material.textview.MaterialTextView-->
+<!--            android:id="@+id/tvArchivedPremium"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:letterSpacing="-0.02"-->
+<!--            android:text="@{model.isCurrent?String.valueOf(model.pointsEarned)+(model.targetType.equalsIgnoreCase(`liter`)?`L`:model.targetType.equalsIgnoreCase(`points`)?`Pts.`:model.targetType):model.ved?String.valueOf(model.targetValue)+(model.targetType.equalsIgnoreCase(`liter`)?`L`:model.targetType.equalsIgnoreCase(`points`)?`Pts.`:model.targetType):`-`}"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/endLine"-->
+<!--            app:layout_constraintStart_toEndOf="@id/middleLine"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <com.google.android.material.textview.MaterialTextView-->
+<!--            android:id="@+id/tvPointEarnedTextPremium"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:gravity="center"-->
+<!--            android:letterSpacing="-0.02"-->
+<!--            android:text="@{model.isCurrent?`-`:model.ved?String.valueOf(model.bonusValue):`-`}"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textStyle="normal"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/endLine"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

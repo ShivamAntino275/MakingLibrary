@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.indigo.custom.models.ContestResponseModel.Data.ContestData.ContestDetails.PrizeDetail" />
+
+        <import type="com.indigo.custom.utils.UtilsKt"/>
+        <import type="android.view.View"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{model.even?View.VISIBLE:View.GONE,default=visible}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/clLeftView">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:id="@+id/cvImage"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_bike"
+                    setImageUrl="@{model.prizeImage}"
+                    android:scaleType="centerCrop"
+                    />
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{UtilsKt.toCamelCase(model.prizeName!= null ? model.prizeName : `-`)}"
+                android:id="@+id/tvPrizeNo"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/helveticaneueregular"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintBottom_toTopOf="@+id/tvPrizeName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cvImage" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{UtilsKt.toCamelCase(model.description!=null ? model.description : `-`)}"
+                android:layout_marginStart="10dp"
+                android:id="@+id/tvPrizeName"
+                android:fontFamily="@font/helveticaneueregular"
+                app:layout_constraintTop_toBottomOf="@+id/tvPrizeNo"
+                app:layout_constraintBottom_toTopOf="@+id/tvWinnerCount"
+                app:layout_constraintStart_toEndOf="@+id/cvImage" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.total_winners!=null ? model.total_winners+ ` Winner` : `-`}"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/helveticaneueregular"
+                android:id="@+id/tvWinnerCount"
+                app:layout_constraintTop_toBottomOf="@+id/tvPrizeName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cvImage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{model.even?View.GONE:View.VISIBLE,default=gone}"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/clRightView">
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:id="@+id/cvRightImage"
+                app:cardCornerRadius="7dp"
+                app:cardElevation="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/ic_bike"
+                    android:scaleType="centerCrop"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvRightPrizeNo"
+                android:layout_marginEnd="10dp"
+                android:text="@{UtilsKt.toCamelCase(model.prizeName!=null ? model.prizeName : `-`)}"
+                android:fontFamily="@font/helveticaneueregular"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintBottom_toTopOf="@+id/tvRightPrizeName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cvRightImage" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{UtilsKt.toCamelCase(model.description!=null ? model.description : `-`)}"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/helveticaneueregular"
+                android:id="@+id/tvRightPrizeName"
+                app:layout_constraintTop_toBottomOf="@+id/tvRightPrizeNo"
+                app:layout_constraintBottom_toTopOf="@+id/tvRightWinnerCount"
+                app:layout_constraintEnd_toStartOf="@+id/cvRightImage" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.total_winners!=null ? model.total_winners+ ` Winner` : `-`}"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/helveticaneueregular"
+                android:id="@+id/tvRightWinnerCount"
+                app:layout_constraintTop_toBottomOf="@+id/tvRightPrizeName"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cvRightImage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

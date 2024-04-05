@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home_icon" />
+
+    <item
+        android:id="@+id/reward"
+        android:icon="@drawable/reward_icon"
+        android:title="Rewards" />
+    <item
+        android:id="@+id/transaction"
+        android:icon="@drawable/transaction_icon"
+        android:title="Transaction" />
+
+    <item
+        android:id="@+id/indigoPaints"
+        android:visible="false"
+        android:icon="@drawable/transaction_icon"
+        android:title="Indigo Paints" />
+</menu>

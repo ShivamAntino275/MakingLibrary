@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.indigo.custom.models.ContestResponseModel.Data.ContestData.ContestDetails.PrizeDetail" />
+
+        <import type="com.indigo.custom.utils.UtilsKt"/>
+        <import type="android.view.View"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clSchemeDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- last item -->
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAdditional"
+            android:lineSpacingExtra="5dp"
+            android:layout_marginStart="10dp"
+            setFontPrize="@{model.achieved}"
+            setFontFamilyPrize="@{model.current}"
+            android:text="@{String.valueOf(model.adapterPosition+1)+`. ` + UtilsKt.toCamelCase(model.prizeName)}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/_13sp"
+            android:textColor="@color/headerColor"
+            android:fontFamily="@font/helveticaneueregular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

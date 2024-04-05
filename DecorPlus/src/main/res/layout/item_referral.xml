@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.indigo.custom.models.GetAllreferralResponse.Data.ReferalData" />
+
+        <import type="com.indigo.custom.utils.UtilsKt" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/dot"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/circle_bg"
+                android:backgroundTint="@{model.referralLeadsTrackDetails.status.equalsIgnoreCase(`Partially Scanned`)?@color/partiallyScanned:model.referralLeadsTrackDetails.status.equalsIgnoreCase(`Unsuccessful`)?@color/unsuccessful:@color/inProgress}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/referral_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/helveticaneuemedium"
+                android:letterSpacing="-0.01"
+                android:text="@{UtilsKt.toCamelCase(model.refereeDetails.name),default=`Varun Dhawan`}"
+                android:textColor="#626161"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/referral_type"
+                app:layout_constraintStart_toEndOf="@id/dot" />
+
+            <TextView
+                android:id="@+id/referral_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/helveticaneuelight"
+                android:letterSpacing="-0.01"
+                android:text="@{UtilsKt.toCamelCase(model.influencerDetails.InfluencerCategoryDetails.name),default=`Contractor`}"
+                android:textColor="@color/disable_button"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/referral_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/referral_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="@{model.refereeDetails.phone_number,default=`9999999999`}"
+                android:textColor="@color/disable_button"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/referral_name"
+                app:layout_constraintStart_toStartOf="@+id/referral_name"
+                app:layout_constraintTop_toBottomOf="@+id/referral_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="@{UtilsKt.convertTimestampToReadableDate(model.referral_date),default=`22/10/23`}"
+                android:textColor="@color/disable_button"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/referral_type"
+                app:layout_constraintStart_toStartOf="@+id/referral_type"
+                app:layout_constraintTop_toBottomOf="@+id/referral_type" />
+
+            <TextView
+                android:id="@+id/referral_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/helveticaneuelight"
+                android:text="@{`Status: `+ model.referralLeadsTrackDetails.status}"
+                android:textColor="@color/disable_button"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/referral_number"
+                app:layout_constraintStart_toStartOf="@+id/referral_number"
+                app:layout_constraintTop_toBottomOf="@+id/referral_number" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:background="@color/disable_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/referral_status" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

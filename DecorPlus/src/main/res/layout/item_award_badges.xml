@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        app:cardElevation="@dimen/_0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/black_border"
+            android:id="@+id/clRefer">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_new"
+                android:id="@+id/tvNew"
+                android:textColor="@color/white"
+                android:paddingHorizontal="10dp"
+                android:textSize="@dimen/_12sp"
+                android:gravity="center"
+                android:fontFamily="@font/helveticaneueregular"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_round_new"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="20dp"
+                android:id="@+id/viewArc"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvNew"
+                android:background="@drawable/arc_pink"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/helveticaneueregular"
+                android:id="@+id/tvRefferal"
+                android:gravity="start"
+                android:layout_marginStart="@dimen/_5dp"
+                android:textSize="@dimen/_14sp"
+                app:layout_constraintStart_toEndOf="@+id/viewArc"
+                app:layout_constraintTop_toTopOf="@+id/viewArc"
+                android:text="@string/awardBadges" />
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                app:cardBackgroundColor="#FFF7FF"
+                app:cardCornerRadius="8dp"
+                android:layout_marginVertical="@dimen/_20dp"
+                android:layout_marginHorizontal="@dimen/_20dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRefferal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/badges"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

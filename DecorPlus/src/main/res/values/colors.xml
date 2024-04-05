@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="headerColor">#454545</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="lightGrey">#8FE8E8E8</color>
+    <color name="grey">#848383</color>
+    <color name="greyDotted">#AEAEAE</color>
+    <color name="viewGrey">#D8D8D8</color>
+    <color name="strokeColor">#6A848383</color>
+    <color name="red">#EC5D5D</color>
+    <color name="appColor">#b7017e</color>
+    <color name="appColorTransparent">#E7BEDB</color>
+    <color name="disable_button">#7d7d7d</color>
+    <color name="green">#22A903</color>
+    <color name="screenBg">#FAF8F7</color>
+    <color name="screenBgColor">#F7FBF7</color>
+    <color name="unsuccessful">#f46229</color>
+    <color name="inProgress">#f9b625</color>
+    <color name="partiallyScanned">#80d054</color>
+</resources>

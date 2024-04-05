@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.indigo.custom.models.ContestResponseModel.Data.ContestData" />
+
+        <import type="com.indigo.custom.utils.UtilsKt"/>
+        <import type="android.view.View"/>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:id="@+id/cvContest"
+        android:onClick="@{(v)-> model.onItemClick.onClick(v,model.adapterPosition,``)}"
+        android:background="@drawable/round_bg_et_wide"
+        android:layout_marginEnd="5dp"
+        app:cardBackgroundColor="@{model.isSelected?@color/appColor:@color/lightGrey}">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="10dp"
+            android:textSize="13sp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            setTextIsSelected="tr"
+            android:maxLines="1"
+            android:fontFamily="@font/helveticaneuemedium"
+            android:textColor="@{model.isSelected?@color/white:@color/black}"
+            android:text="@{UtilsKt.toCamelCase(model.contestDetails.contestName!=null ? model.contestDetails.contestName : `-`)}" />
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
